@@ -17,6 +17,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - shell: python
         run: |
-          import os, sys
+          import json, os, sys
           print(sys.version_info)
-          print(os.environ)
+          print(json.dumps(os.environ, indent=2))
