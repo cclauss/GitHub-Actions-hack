@@ -17,10 +17,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - shell: python
         env:
-          DESIRED_PYTHON: ${{ matrix.python-version }}
-        run: |
-          import json, os, sys
-          print(sys.version_info)
-          d = dict(os.environ)
+          EXPECTED_PYTHON: ${{ matrix.python-version }}
+        run: import os, sys ; assert sys.version.startswith(os.getenv("EXPECTED_PYTHON"))
+          # import json, os, sys
+          # print(sys.version_info)
+          # d = dict(os.environ)
           # d.pop('GITHUB_ENV')
-          print(json.dumps(d, indent=2, sort_keys=True))
+          # print(json.dumps(d, indent=2, sort_keys=True))
+          # assert sys.version.startswith(os.getenv("EXPECTED_PYTHON"))
