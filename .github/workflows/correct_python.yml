@@ -8,7 +8,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]    # [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [2.7, 3.5, 3.6, 3.7, 3.8, 3.9, pypy3]
+        python-version: [2.7, 3.9]  # [2.7, 3.5, 3.6, 3.7, 3.8, 3.9, pypy3]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
@@ -16,6 +16,8 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - shell: python
+        env:
+          DESIRED_PYTHON: ${{ matrix.python-version }}
         run: |
           import json, os, sys
           print(sys.version_info)
