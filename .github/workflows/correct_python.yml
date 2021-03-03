@@ -19,6 +19,6 @@ jobs:
         run: |
           import json, os, sys
           print(sys.version_info)
-          d = os.environ
-          d.pop('GITHUB_ENV')
+          d = dict(os.environ)
+          # d.pop('GITHUB_ENV')
           print(json.dumps(d, indent=2))
