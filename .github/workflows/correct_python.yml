@@ -21,4 +21,4 @@ jobs:
           print(sys.version_info)
           d = dict(os.environ)
           # d.pop('GITHUB_ENV')
-          print(json.dumps(d, indent=2))
+          print(json.dumps(d, indent=2, sort_keys=True))
