@@ -27,4 +27,4 @@ jobs:
           POSTGRES_HOST: postgres  # localhost
           # The default PostgreSQL port
           POSTGRES_PORT: 5432
-        run: psql -c 'create database infobase_test;' -U postgres || true
+        run: psql --host postgres c 'create database infobase_test;' -U postgres || true
