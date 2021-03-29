@@ -28,4 +28,4 @@ jobs:
           # The default PostgreSQL port
           # POSTGRES_PORT: 5432
           POSTGRES_PASSWORD: postgres
-        run: psql --host=localhost --port=5432 --username=postgres -c 'create database infobase_test;'
+        run: psql --host=localhost --port=5432 -c 'create database infobase_test;'
