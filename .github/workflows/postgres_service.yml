@@ -12,7 +12,7 @@ jobs:
         # Provide the password for postgres
         env:
           POSTGRES_USER: runner
-          # POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD: postgres
           # POSTGRES_HOST_AUTH_METHOD: trust
         # Set health checks to wait until postgres has started
         options: >-
@@ -30,6 +30,6 @@ jobs:
           # The default PostgreSQL port
           # POSTGRES_PORT: 5432
           # POSTGRES_USER: postgres
-          # POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD: postgres
           # POSTGRES_HOST_AUTH_METHOD: trust
       - run: psql --host=localhost -c 'create database infobase_test;'
