@@ -24,7 +24,7 @@ jobs:
     steps:
       - env:
           # The hostname used to communicate with the PostgreSQL service container
-          POSTGRES_HOST: postgres  # localhost
+          # POSTGRES_HOST: postgres  # localhost
           # The default PostgreSQL port
-          POSTGRES_PORT: 5432
-        run: psql --host postgres c 'create database infobase_test;' -U postgres || true
+          # POSTGRES_PORT: 5432
+        run: psql --host=localhost --port=5432 --username=postgres -c 'create database infobase_test;'
