@@ -12,8 +12,7 @@ jobs:
         # Provide the password for postgres
         env:
           POSTGRES_USER: runner
-          POSTGRES_PASSWORD: postgres
-          # POSTGRES_HOST_AUTH_METHOD: trust
+          POSTGRES_HOST_AUTH_METHOD: trust
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -24,12 +23,4 @@ jobs:
           # Maps tcp port 5432 on service container to the host
           - 5432:5432
     steps:
-      - env:
-          # The hostname used to communicate with the PostgreSQL service container
-          # POSTGRES_HOST: postgres  # localhost
-          # The default PostgreSQL port
-          # POSTGRES_PORT: 5432
-          # POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          # POSTGRES_HOST_AUTH_METHOD: trust
-        run: psql --host=localhost -c 'create database infobase_test;'
+      - run: psql --host=localhost -c 'create database infobase_test;'
