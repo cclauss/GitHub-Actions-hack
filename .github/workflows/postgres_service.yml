@@ -31,5 +31,5 @@ jobs:
           # POSTGRES_PORT: 5432
           # POSTGRES_USER: postgres
           # POSTGRES_PASSWORD: postgres
-          POSTGRES_HOST_AUTH_METHOD: trust
+          # POSTGRES_HOST_AUTH_METHOD: trust
         run: psql --host=localhost --port=5432 --no-password -c 'create database infobase_test;'
