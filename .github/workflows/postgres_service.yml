@@ -4,7 +4,7 @@ on: [pull_request, push]
 jobs:
   postgres_service:
     runs-on: ubuntu-latest
-    container: ubuntu
+    container: postgres
     services:
       # Label used to access the service container
       postgres:
@@ -21,7 +21,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - run: apt update && apt install -y postgresql
+      #- run: apt update && apt install -y postgresql
       - run: psql --host=postgres -c 'create database infobase_test;'
         env:
           POSTGRES_PASSWORD: postgres
