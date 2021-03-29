@@ -22,9 +22,10 @@ jobs:
           # Maps tcp port 5432 on service container to the host
           - 5432:5432
     steps:
-      #- env:
+      - env:
           # The hostname used to communicate with the PostgreSQL service container
           # POSTGRES_HOST: postgres  # localhost
           # The default PostgreSQL port
           # POSTGRES_PORT: 5432
-      - run: psql --host=localhost --port=5432 --username=postgres -e POSTGRES_PASSWORD=postgres -c 'create database infobase_test;'
+          POSTGRES_PASSWORD: postgres
+        run: psql --host=localhost --port=5432 --username=postgres -c 'create database infobase_test;'
