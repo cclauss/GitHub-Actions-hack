@@ -24,7 +24,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      - run: apt update && apt install -y postgresql
+      - run: apt update && DEBIAN_FRONTEND=noninteractive apt install -y postgresql
       - run: psql --host=postgres -c 'create database infobase_test;'
         env:
           POSTGRES_PASSWORD: postgres
