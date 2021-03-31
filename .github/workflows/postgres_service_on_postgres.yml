@@ -1,8 +1,8 @@
 # https://docs.github.com/en/actions/guides/creating-postgresql-service-containers
-name: postgres_service
+name: postgres_on_postgres
 on: [pull_request, push]
 jobs:
-  postgres_service:
+  postgres_on_postgres:
     runs-on: ubuntu-latest
     container: postgres
     services:
