@@ -3,8 +3,12 @@ name: postgres_on_postgres
 on: [pull_request, push]
 jobs:
   postgres_on_postgres:
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    container: postgres
+    # Docker Hub image that `container-job` executes in
+    container: ubuntu:latest
+
+    # Service containers to run with `container-job`
     services:
       # Label used to access the service container
       postgres:
@@ -13,7 +17,6 @@ jobs:
         # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
-          # POSTGRES_HOST_AUTH_METHOD: trust
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -21,7 +24,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      #- run: apt update && apt install -y postgresql
+      - run: apt update && apt install -y postgresql
       - run: psql --host=postgres -c 'create database infobase_test;'
         env:
           POSTGRES_PASSWORD: postgres
