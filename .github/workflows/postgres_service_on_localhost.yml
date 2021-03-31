@@ -1,8 +1,8 @@
 # https://docs.github.com/en/actions/guides/creating-postgresql-service-containers
-name: postgres_service
+name: postgres_on_localhost
 on: [pull_request, push]
 jobs:
-  postgres_service:
+  postgres_on_localhost:
     runs-on: ubuntu-latest
     services:
       # Label used to access the service container
