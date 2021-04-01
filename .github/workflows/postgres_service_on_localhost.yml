@@ -24,4 +24,6 @@ jobs:
     steps:
       - run: ls /etc || true
       - run: cat /etc/hosts || true
-      - run: psql --host=localhost --username=postgres -c 'create database infobase_test;'
+      - run: echo '127.0.0.1 postgres' >> /etc/hosts
+      - run: cat /etc/hosts || true
+      - run: psql --host=postgres --username=postgres -c 'create database infobase_test;'
