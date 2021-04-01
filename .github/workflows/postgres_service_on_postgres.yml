@@ -25,9 +25,9 @@ jobs:
           --health-retries 5
     steps:
       - run: apt update && DEBIAN_FRONTEND=noninteractive apt install -y postgresql
-      - run: psql --host=postgres -c 'create database infobase_test;'
-        env:
-          POSTGRES_PASSWORD: postgres
+      #- run: psql --host=postgres -c 'create database infobase_test;'
+      #  env:
+      #    POSTGRES_PASSWORD: postgres
       - run: ls /etc || true
       - run: cat /etc/hosts || true
       
