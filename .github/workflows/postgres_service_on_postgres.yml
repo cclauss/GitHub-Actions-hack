@@ -28,3 +28,6 @@ jobs:
       - run: psql --host=postgres -c 'create database infobase_test;'
         env:
           POSTGRES_PASSWORD: postgres
+      - run: ls /etc || true
+      - run: cat /etc/hosts || true
+      
