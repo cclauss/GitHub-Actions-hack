@@ -24,6 +24,7 @@ jobs:
     steps:
       - run: ls /etc || true
       - run: cat /etc/hosts || true
-      - run: sudo echo '127.0.0.1 postgres' >> /etc/hosts
+      #- run: sudo echo '127.0.0.1 postgres' >> /etc/hosts
+      - run: echo "127.0.0.1 postgres" | sudo tee -a /etc/hosts
       - run: cat /etc/hosts || true
       - run: psql --host=postgres --username=postgres -c 'create database infobase_test;'
