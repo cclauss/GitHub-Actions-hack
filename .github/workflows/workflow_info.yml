@@ -1,0 +1,20 @@
+name: workflow_info
+on: [push, pull_request]
+jobs:
+  workflow_info:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+          JOB_CONTEXT: ${{ toJson(job) }}
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        run: |
+          echo "${GITHUB_CONTEXT}"
+          echo "${JOB_CONTEXT}"
+          echo "${STEPS_CONTEXT}"
+          echo "${RUNNER_CONTEXT}"
+          echo "${STRATEGY_CONTEXT}"
+          echo "${MATRIX_CONTEXT}"
