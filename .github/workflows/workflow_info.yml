@@ -12,9 +12,9 @@ jobs:
           STRATEGY_CONTEXT: ${{ toJson(strategy) }}
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: |
-          echo "${GITHUB_CONTEXT}"
-          echo "${JOB_CONTEXT}"
-          echo "${STEPS_CONTEXT}"
-          echo "${RUNNER_CONTEXT}"
-          echo "${STRATEGY_CONTEXT}"
-          echo "${MATRIX_CONTEXT}"
+          echo "GitHub: ${GITHUB_CONTEXT}"
+          echo "Job: ${JOB_CONTEXT}"
+          echo "Steps: ${STEPS_CONTEXT}"
+          echo "Runner: ${RUNNER_CONTEXT}"
+          echo "Straregy: ${STRATEGY_CONTEXT}"
+          echo "Matrix${MATRIX_CONTEXT}"
