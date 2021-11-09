@@ -20,7 +20,7 @@ jobs:
           echo "Matrix: ${MATRIX_CONTEXT}"
       - run: |
           from os import environ
-          from pprint import prettyprint
+          from pprint import pprint
           pprint(environ)
         shell: python
       
@@ -41,5 +41,5 @@ jobs:
       - shell: python
         run: |
           from os import environ
-          from pprint import prettyprint
+          from pprint import pprint
           pprint(environ)
