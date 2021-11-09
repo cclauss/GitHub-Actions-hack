@@ -33,7 +33,7 @@ jobs:
     steps:
       - env:
           RUNNER_CONTEXT: ${{ toJson(runner) }}
-          RUNNER_OS: ${{ runner.os }}
+          # RUNNER_OS: ${{ runner.os }}
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: |
           echo "Runner: ${RUNNER_CONTEXT}"
@@ -44,6 +44,6 @@ jobs:
           from os import environ
           from pprint import pprint
           pprint(environ)
-      - if: runner.os == "macOS"
+      - if: runner.os == 'macOS'
         run: echo "We are on a Mac!"
-
+        shell: bash
