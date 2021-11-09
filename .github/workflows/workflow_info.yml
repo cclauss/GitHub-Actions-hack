@@ -47,3 +47,4 @@ jobs:
       - if: runner.os == 'macOS'
         run: echo "We are on a Mac!"
         shell: bash
+      - run: python print_env.py
