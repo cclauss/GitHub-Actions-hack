@@ -32,6 +32,7 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
+      - uses: actions/checkout@v2
       - env:
           RUNNER_CONTEXT: ${{ toJson(runner) }}
           # RUNNER_OS: ${{ runner.os }}
