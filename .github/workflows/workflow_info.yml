@@ -35,7 +35,7 @@ jobs:
       - uses: actions/checkout@v2
       - env:
           RUNNER_CONTEXT: ${{ toJson(runner) }}
-          # RUNNER_OS: ${{ runner.os }}
+          # RUNNER_OS: ${{ runner.os }}  # ('Linux', 'macOS', 'Windows')
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: |
           echo "Runner: ${RUNNER_CONTEXT}"
