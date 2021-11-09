@@ -18,12 +18,12 @@ jobs:
           echo "Runner: ${RUNNER_CONTEXT}"
           echo "Straregy: ${STRATEGY_CONTEXT}"
           echo "Matrix: ${MATRIX_CONTEXT}"
-      - run: |
+      - shell: python
+        run: |
           from os import environ
           from pprint import pprint
           pprint(environ)
-        shell: python
-      
+
   operating_system_info:
     strategy:
       fail-fast: false
@@ -33,7 +33,8 @@ jobs:
     steps:
       - env:
           RUNNER_CONTEXT: ${{ toJson(runner) }}
-          # RUNNER_OS: ${{ runner.os }}
+          RUNNER_OS: ${{ runner.os }}
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: |
           echo "Runner: ${RUNNER_CONTEXT}"
           echo "Runner_OS: ${RUNNER_OS}"
@@ -43,3 +44,6 @@ jobs:
           from os import environ
           from pprint import pprint
           pprint(environ)
+      - if: runner.os == "macOS"
+        run: echo "We are on a Mac!"
+
