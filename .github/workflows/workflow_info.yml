@@ -4,6 +4,7 @@ jobs:
   workflow_info:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           JOB_CONTEXT: ${{ toJson(job) }}
