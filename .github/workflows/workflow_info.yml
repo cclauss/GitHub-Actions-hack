@@ -22,4 +22,24 @@ jobs:
           from os import environ
           from pprint import prettyprint
           pprint(environ)
+        shell: python
       
+  operating_system_info:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - env:
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+          # RUNNER_OS: ${{ runner.os }}
+        run: |
+          echo "Runner: ${RUNNER_CONTEXT}"
+          echo "Runner_OS: ${RUNNER_OS}"
+          echo "Matrix: ${MATRIX_CONTEXT}"
+      - shell: python
+        run: |
+          from os import environ
+          from pprint import prettyprint
+          pprint(environ)
