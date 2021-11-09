@@ -18,8 +18,8 @@ jobs:
           echo "Runner: ${RUNNER_CONTEXT}"
           echo "Straregy: ${STRATEGY_CONTEXT}"
           echo "Matrix: ${MATRIX_CONTEXT}"
-      - script: python
-        run: |
+      - run: |
           from os import environ
           from pprint import prettyprint
           pprint(environ)
+      
