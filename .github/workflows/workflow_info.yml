@@ -17,4 +17,9 @@ jobs:
           echo "Steps: ${STEPS_CONTEXT}"
           echo "Runner: ${RUNNER_CONTEXT}"
           echo "Straregy: ${STRATEGY_CONTEXT}"
-          echo "Matrix${MATRIX_CONTEXT}"
+          echo "Matrix: ${MATRIX_CONTEXT}"
+      - script: python
+        run: |
+          from os import environ
+          from pprint import prettyprint
+          pprint(environ)
