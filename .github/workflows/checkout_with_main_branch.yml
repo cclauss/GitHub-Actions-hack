@@ -5,6 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run:  git remote add upstream https://github.com/$GITHUB_REPOSITORY || true
+      - run:  git branch || true
+      - run: git diff main || true
+      - run: git diff upstream/main || true
+      - run: git diff upstream main || true
       - uses: actions/checkout@v2
         with:
           path: main
