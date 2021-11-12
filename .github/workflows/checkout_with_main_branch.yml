@@ -5,7 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           path: main
-      - run: git branch
+      - run: git branch || true
       - run: git diff main || true
+
